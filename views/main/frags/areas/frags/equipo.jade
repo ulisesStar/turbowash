@@ -1,0 +1,7 @@
+section.equipo(layout="row" layout-align="center center" ng-if="area.herramientas.length !== 0")
+    .equipo-cotent(flex="70" flex-md="70" flex-sm="80" flex-xs="90" layout="column")
+        md-list
+            h4 Nuestro Equipo
+            md-list-item(ng-repeat="equipo in area.herramientas")
+                .md-list-item-text
+                    p {{equipo.nombre}}

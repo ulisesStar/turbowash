@@ -1,0 +1,25 @@
+md-dialog
+    md-toolbar
+        .md-toolbar-tools
+            h4 Información de la Cotización
+            span(flex)
+            md-button(ng-click="close()")
+                md-icon clear
+    md-card-content(layout-padding)
+        md-subheader Datos de la Llanta
+        div(layout="row" layout-align="center center")
+            div(layout="column" flex)
+                strong -Ancho:
+                p {{cotizacion.ancho}}
+                strong -Altura:
+                p {{cotizacion.perfil}}
+            div(layout="column" flex)
+                strong -Tamaño Rin:
+                p {{cotizacion.rin}}
+                strong -Carga y Velocidad:
+                p {{cotizacion.velocidad}}
+            div(layout="column" flex)
+                strong -Auto:
+                p {{cotizacion.auto}}
+                strong -Marca:
+                p {{cotizacion.marca}}

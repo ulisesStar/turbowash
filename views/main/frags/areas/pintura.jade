@@ -1,0 +1,61 @@
+.loading(ng-if="loading")
+    md-progress-linear(md-mode="indeterminate" ng-disabled="!loading" )
+.area(ng-if="!loading")
+    section.video(ng-if="area")
+        video-bg(video-id="area.video")
+        iframe(src="https://www.youtube.com/embed/Hg-zyohQHIY?rel=0" frameborder="0" allowfullscreen hide-gt-sm)
+    md-toolbar(md-whiteframe="5")
+        .md-toolbar-tools
+            h1 {{area.nombre}}
+    include frags/descripcion
+    section.equipo(layout="row" layout-align="center center" ng-if="area.herramientas.length !== 0")
+        .equipo-cotent(flex="70" flex-md="70" flex-sm="80" flex-xs="90" layout="column")
+            md-list
+                md-list-item
+                    .md-list-item-text
+                        strong Hojalatería - Nuestro equipo:
+                md-list-item(ng-repeat="equipo in area.herramientas")
+                    .md-list-item-text
+                        p {{equipo.nombre}}
+
+    include frags/portada
+    section.equipo(layout="row" layout-align="center center" ng-if="area.herramientas.length !== 0")
+        .equipo-cotent(flex="70" flex-md="70" flex-sm="80" flex-xs="90" layout="column")
+            div(layout="row" style="display:flex")
+                md-list(flex style="margin:auto")
+                    md-list-item
+                        .md-list-item-text
+                            strong Pintura horneada - Nuestro equipo:
+                    md-list-item
+                        .md-list-item-text
+                            p Hornos de pintura alta inyección de pureza
+                    md-list-item
+                        .md-list-item-text
+                            p Cabinas de preparación libres de contaminantes
+                    md-list-item
+                        .md-list-item-text
+                            p Secado con lámparas de infrarrojo
+                    md-list-item
+                        .md-list-item-text
+                            p Laboratorio de colorística
+                    md-list-item
+                        .md-list-item-text
+                            p Técnico igualador en colorística
+                .imangen-container(hide-xs hide-sm)
+                    img(src="img/botes.png" style="margin:auto")
+    section.portada.parrallax
+        .loading(ng-if="!portadalista")
+            md-progress-circular(md-mode="indeterminate" md-diameter="100")
+        img.background(src="{{portadas[1].imagen}}" ng-if="portadalista")
+    section.servicios(layout="row" layout-align="center center" ng-if="area.servicios.length !== 0")
+        .servicios-cotent(flex="70" flex-md="70" flex-sm="80" flex-xs="90" layout="column")
+            md-list
+                h4 Servicios
+                md-list-item(ng-repeat="servicio in area.servicios")
+                    .md-list-item-text
+                        p {{servicio.nombre}}
+                h4 Servicio especial a:
+                md-list-item
+                    .md-list-item-text
+                        p Agencias del ramo automotriz y Vehículos siniestrados con aseguradoras de prestigio
+    include frags/multimedia

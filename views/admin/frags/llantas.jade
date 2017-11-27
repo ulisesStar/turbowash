@@ -1,0 +1,73 @@
+div(layout="row" layout-align="center center")
+    div(flex="80")
+        .Buscar
+            md-card-content(layout="row")
+                md-autocomplete(
+                    flex
+                    md-selected-item="ctrl.selectedLlantas" 
+                    md-search-text-change="ctrl.BuscarLlantasChange(ctrl.searchTextLlantas)" 
+                    md-search-text="ctrl.searchTextLlantas" 
+                    md-selected-item-change="ctrl.LlantasSeleccionadoChange(item)" 
+                    md-items="item in llantas" 
+                    md-item-text="item.nombre" 
+                    md-min-length="0" 
+                    placeholder="Nombre de la Llanta" 
+                    md-menu-class="autocomplete-custom-template")
+                        md-item-template
+                            span {{item.nombre}}
+                    md-button(md-colors="{background: 'green'}" ng-click="abrirForm()")
+                        md-icon add
+                    
+        .Crear(ng-show="!formulario")
+            md-card
+                md-toolbar
+                    .md-toolbar-tools
+                        h1 Llantas
+                        span(flex)
+                        md-button(md-colors="{background: 'red'}" ng-click="cerrarForm()")
+                            md-icon clear
+                form(layout="row" ng-submit="submitLlanta(llanta)")
+                    .info(flex="40" layout="column")
+                        md-input-container(flex)
+                            label nombre
+                            input(ng-model="llanta.nombre" required)
+                        md-input-container(flex)
+                            label marca
+                            input(ng-model="llanta.marca")
+                        md-input-container(flex)
+                            label tipo
+                            input(ng-model="llanta.tipo" required)
+                        md-input-container(flex)
+                            label descripcion
+                            textarea(ng-model="llanta.descripcion" md-maxlength="500" rows="4" md-select-on-focus)
+                    div(flex)
+                        .dropify-container(ng-init="Dropify()" ng-hide="inputImage" flex)
+                            input.dropify(type="file" data-default-file="Imagen del producto" ng-model="llanta.imagen" base-sixty-four-input maxsize="5120" data-max-file-size="1000K" accept="image/*" style="padding:0px;")
+                        .croppie-container(ng-show="inputImage" flex)
+                            ng-croppie(src="inputImage"
+                                ng-model='llanta.imagen'
+                                update='onUpdate'
+                                boundry="{w: 200, h: 200 }"
+                                viewport="{w: 200, h: 200 }"
+                                mousezoom="true" 
+                                zoom="true" 
+                                orientation="90"
+                                type="square")
+                        md-button(type="submit" md-colors="{background: 'green'}" flex)
+                            md-icon send
+        .Lista
+            md-card
+                md-toolbar
+                    h4 Lista de Llantas
+                md-card-content(layout="row")
+                    md-list(flex)
+                        md-list-item(ng-repeat="llanta in llantas")
+                            //img(src="{{llanta.imagen}}")
+                            .md-list-item-text
+                                h4 {{llanta.nombre}}
+                            .md-secondary
+                                md-button(md-colors="{background:'green'}" ng-click="seleccionar(llanta)")
+                                    md-icon edit
+                                md-button(md-colors="{background:'red'}" ng-click="eliminarLlanta(llanta,$index)")
+                                    md-icon clear
+            

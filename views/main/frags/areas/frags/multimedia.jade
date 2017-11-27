@@ -1,0 +1,4 @@
+section.multimedia
+    .loading(ng-if="!imageneslista")
+        md-progress-circular(md-mode="indeterminate" md-diameter="100")
+    slider.slider(images="imagenes" ng-if="imageneslista")

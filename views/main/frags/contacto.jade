@@ -1,0 +1,60 @@
+.contacto
+    section.imagen(style="background-image: url(img/ejemplos/ventas.jpg); background-position: top center")
+        .titulo
+            h1 Ventas
+    section(layout="row" layout-align="center center")
+        div(flex="70" flex-md="70" flex-sm="90" flex-xs="90")
+            h1 Contactanos
+            div(layout="row" layout-align="center center" layout-xs="column" layout-sm="column")
+                form.md-padding.formulario(ng-submit="crearContacto(contacto)" layout="column" flex ng-hide="listo")
+                    md-input-container(flex)
+                        label Nombre
+                        input(ng-model="contacto.nombre" required)
+                    md-input-container(flex)
+                        label E-mail
+                        input(ng-model="contacto.email" required)
+                    md-input-container(flex)
+                        label Mensaje
+                        textarea(ng-model="contacto.mensaje" md-maxlength="150" rows="5")
+                    md-input-container
+                        label Teléfono
+                        input(ng-model="contacto.telefono" required)
+                    md-button(type="submit") Enviar
+                div(ng-show="listo")
+                    md-card
+                        h1(style="text-align: center") Muchas Gracias, muy pronto nos comunicaremos contigo.
+                .mapa(flex)
+                    iframe(src="https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d60155.95406793225!2d-96.920897!3d19.552467000000004!3m2!1i1024!2i768!4f13.1!2m1!1sTurbowash+Autoplaza+Calle+L%C3%A1zaro+C%C3%A1rdenas+862%2C+Rafael+Lucio%2C+91110+Xalapa+Enr%C3%ADquez%2C+Veracruz!5e0!3m2!1ses-419!2sus!4v1509129285094" frameborder="0" style="border:0" allowfullscreen)
+            h4 ENCUENTRA TU TURBOWASH
+            md-divider
+    section(layout="row" layout-align="center center")
+        div(flex="70" flex-md="70" flex-sm="90" flex-xs="90")
+            h4 Sucursales y horarios de atención
+            md-list
+                md-list-item.md-2-line
+                    md-icon(style="margin-left: 0px;") location_on
+                    .md-list-item 
+                        h4 AV. LÁZARO CÁRDENAS
+                        p 862 E/ ISMAEL CRISTEN Y GILDARDO AVILÉS, COL. RAFAEL LUCIO  C.P. 91110
+                    .md-secondary
+                        p TEL. (228) 890 6803
+                md-list-item.md-2-line
+                    md-icon(style="margin-left: 0px;")  location_on
+                    .md-list-item 
+                        h4 AV. ARCO SUR
+                        p # 171, COL. RESERVA TERRITORIAL  C.P. 91096
+                    .md-secondary
+                        p TEL. (228) 890 6805
+                md-list-item.md-2-line
+                    md-icon(style="margin-left: 0px;")  location_on
+                    .md-list-item 
+                        h4 AV. RUIZ CORTINES
+                        p #1801 COL. OBRERO CAMPESINA  ESQ. REYES HEROLES  C.P.91020
+                    .md-secondary
+                        p TEL. (228) 890 6802
+
+            h3 HORARIOS TALLERES
+            p De Lunes a Viernes de 9am a 7pm (horario corrido) Sábados de 9am a 3pm
+            br
+            h3 LAVADO AUTOMATIZADO & ESTÉTICA AUTOMOTRIZ
+            p De Lunes a Domingo de 7:30am a 8pm.

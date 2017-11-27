@@ -1,0 +1,15 @@
+.acceso(layout="row" layout-align="center center")
+    md-card(flex="50")
+        md-toolbar
+            .md-toolbar-tools
+                p Acceso al panel
+        md-card-content
+            form(ng-submit="login(usuario)" layout="column")
+                md-input-container
+                    label Correo
+                    input(ng-model="usuario.correo")
+                md-input-container
+                    label Password
+                    input(ng-model="usuario.password" type="password")
+                md-button(type="submit")
+                    md-icon send

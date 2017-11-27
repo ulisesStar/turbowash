@@ -1,0 +1,18 @@
+md-dialod(style="width:60vw;")
+    md-toolbar
+        .md-toolbar-tools
+            h1 Nueva Area
+    form(ng-submit="submit(area)" layout="column")
+        .form-content(layout="row" layout-align="center center" flex)
+                md-input-container(flex)
+                    label Nombre del Area
+                    input(ng-model="area.nombre" required)
+                    md-input-container(flex)
+                        label Descripcion
+                        textarea(ng-model="area.descripcion" md-maxlength="150" rows="4" md-select-on-focus required)
+
+        .options(layout="row")  
+            md-button(flex type="submit")   
+                md-icon add 
+            md-button(flex ng-click="close()")
+                md-icon cancel 

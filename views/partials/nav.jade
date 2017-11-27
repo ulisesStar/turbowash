@@ -1,0 +1,90 @@
+md-icon(md-svg-icon="img/logo.svg" hide-xs ui-sref="home")
+md-icon(md-svg-icon="img/isotipo.svg" hide-gt-xs ui-sref="home")
+.menu
+	md-menu-bar(hide-xs hide-sm)
+		md-button(ui-sref="home") Inicio
+		md-menu(ng-click="$mdMenu.open()")
+			md-button Servicios
+			md-menu-content(ng-mouseleave="$mdMenu.close()")
+				md-menu-item
+					md-button(ui-sref="taller({id: '1', titulo: 'Taller_de_Mecanica'})") Taller de Mecánica
+				md-menu-item
+					md-button(ui-sref="pintura({id: '2', titulo: 'Pintura_Horneada'})") Taller de Pintura Horneada
+				md-menu-item
+					md-button(ui-sref="estetica({id: '3', titulo: 'Estetica'})") Estética
+				md-menu-item
+					md-button(ui-sref="lavado({id: '4', titulo: 'Lavado_Automatizado'})") Lavado Automatizado
+				md-menu-item
+					md-button(ui-sref="residencial({id: '5', titulo: 'Servicio_Residencial'})") Servicio Residencial, Comercial e Industrial	
+		md-menu(ng-click="$mdMenu.open()")
+			md-button(ui-sref="llantas") Llantas
+			md-menu-content(ng-mouseleave="$mdMenu.close()")
+				md-menu-item
+					md-button(ui-sref="llanta({id: '1', titulo: 'Auto_Deportivo', nombre: 'Auto Deportivo'})") Auto Deportivo
+				md-menu-item
+					md-button(ui-sref="llanta({id: '2', titulo: 'Auto_Sedan', nombre: 'Auto Sedán'})") Auto Sedán
+				md-menu-item
+					md-button(ui-sref="llanta({id: '3', titulo: 'Suv_Mini', nombre: 'Camioneta Suv & Pick-Up'})") SUV y Mini Van
+				md-menu-item
+					md-button(ui-sref="llanta({id: '4', titulo: 'Camioneta_carga', nombre: 'Camioneta de Carga'})") Camioneta de carga
+		md-button(ui-sref="promociones") Promociones
+		md-button(ui-sref="videos") Videos
+		md-menu(ng-click="$mdMenu.open()" )
+			md-button Contacto
+			md-menu-content(ng-mouseleave="$mdMenu.close()")
+				md-menu-item
+					md-button(ui-sref="contacto") Contacto
+				md-menu-item
+					md-button(ui-sref="sucursal") Sucursales y Atención a clientes
+				md-menu-item
+					md-button(ui-sref="aviso") Aviso de privacidad
+		md-button(ui-sref="ofertaTrabajo") Oferta de trabajo
+	md-menu-bar(hide-gt-sm)
+		md-menu
+			md-button.menuboton(ng-click="$mdOpenMenu()")
+				md-icon.material-icons menu
+			md-menu-content
+				md-menu-item
+					md-button(ui-sref="home") Inicio
+				md-menu(ng-click="$mdMenu.open()")
+					md-button Servicios
+					md-menu-content(ng-mouseleave="$mdMenu.close()")
+						md-menu-item
+							md-button(ui-sref="taller({id: '1', titulo: 'Taller_de_Mecanica'})") Taller de Mecánica
+						md-menu-item
+							md-button(ui-sref="pintura({id: '2', titulo: 'Pintura_Horneada'})") Taller de Pintura Horneada
+						md-menu-item
+							md-button(ui-sref="estetica({id: '3', titulo: 'Estetica'})") Estética
+						md-menu-item
+							md-button(ui-sref="lavado({id: '4', titulo: 'Lavado_Automatizado'})") Lavado Automatizado
+						md-menu-item
+							md-button(ui-sref="residencial({id: '5', titulo: 'Servicio_Residencial'})") Servicio Residencial, Comercial e Industrial
+				md-menu(ng-click="$mdMenu.open()")
+					md-button(ui-sref="llantas") Llantas
+					md-menu-content(ng-mouseleave="$mdMenu.close()")
+						md-menu-item
+							md-button(ui-sref="llanta({id: '1', titulo: 'Auto_Deportivo', nombre: 'Auto Deportivo'})") Auto Deportivo
+						md-menu-item
+							md-button(ui-sref="llanta({id: '2', titulo: 'Auto_Sedan', nombre: 'Auto Sedan'})") Auto Sedan
+						md-menu-item
+							md-button(ui-sref="llanta({id: '3', titulo: 'Suv_Mini', nombre: 'Camioneta Suv & Pick-Up'})") SUV y Mini Van
+						md-menu-item
+							md-button(ui-sref="llanta({id: '4', titulo: 'Camioneta_carga', nombre: 'Camioneta de Carga'})") Camioneta de carga
+				md-menu-item
+					md-button(ui-sref="promociones") Promociones
+				md-menu-item
+					md-button(ui-sref="videos") Videos
+				md-menu(ng-mouseover="$mdMenu.open()" )
+					md-button Contacto
+					md-menu-content(ng-mouseleave="$mdMenu.close()")
+						md-menu-item
+							md-button(ui-sref="contacto") Contacto
+						md-menu-item
+							md-button(ui-sref="sucursal") Sucursales y Atención a clientes
+						md-menu-item
+							md-button(ui-sref="aviso") Aviso de privacidad
+				md-menu-item
+					md-button(ui-sref="ofertaTrabajo") Oferta de trabajo
+			//- 	md-menu-item(ng-repeat="boton in botones")
+			//- 		md-button(class="navbutton" md-colors="{background: '{{boton.color}}'}" ui-sref="{{boton.sref}}") {{boton.title}}
+			//- 			md-icon(class="material-icons") {{boton.icon}}

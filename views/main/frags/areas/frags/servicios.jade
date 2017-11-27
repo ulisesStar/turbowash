@@ -1,0 +1,7 @@
+section.servicios(layout="row" layout-align="center center" ng-if="area.servicios.length !== 0")
+    .servicios-cotent(flex="70" flex-md="70" flex-sm="80" flex-xs="90" layout="column")
+        md-list
+            h4 Servicios
+            md-list-item(ng-repeat="servicio in area.servicios")
+                .md-list-item-text
+                    p {{servicio.nombre}}

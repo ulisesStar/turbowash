@@ -1,0 +1,84 @@
+.llantas
+    section.video
+        video-bg(video-id="video.id")
+        iframe(src="https://www.youtube.com/embed/cEKeShOkufI?rel=0" frameborder="0" allowfullscreen hide-gt-sm)
+    md-toolbar(md-whiteframe="5")
+        .md-toolbar-tools
+            h1 Llantas
+    section.contenido(layout="row" layout-align="center center")
+        .section-content(flex="70")
+            p Llantas GOODYEAR 100 Años de Investigación, innovación y liderazgo en la producción de nuevas tecnologías en neumáticos a nivel mundial.
+            p Seguridad y confort a tu alcance
+            h4 Nuestras marcas:
+            .marcas(layout="row" layout-xs="column" layout-sm="column" layout-align="space-around center")
+                    img(src="img/goodyear_logo_yellow.png")
+                    img(src="img/dunlop_rubber_logo.jpg")
+                    
+            .marcas(layout="row" layout-xs="column" layout-sm="column" layout-align="center center")
+                    img(src="img/kelly-logo-gr.png")
+            h4 Servicios:
+            md-list
+                md-list-item
+                    .md-list-item-text
+                        p Alineación por computadora
+                md-list-item
+                    .md-list-item-text
+                        p Balanceo
+                
+                md-list-item
+                    .md-list-item-text
+                        p Inflado de llantas con nitrógeno
+    section.cotizador#cotizador(layout="row" layout-align="center center" style="margin-top: 100px")
+        .section-content(flex="70" layout="column")
+            h1(style="text-align: center; font-size: 36px") Cotizador
+            form(ng-submit="crearCotizacion(cotizacion)" ng-hide="listo")
+                div(layout="row" layout-xs="column" layout-sm="column")
+                    md-input-container(flex)
+                        label Nombre
+                        input(ng-model="cotizacion.nombre" required)
+                    md-input-container(flex)
+                        label Teléfono
+                        input(ng-model="cotizacion.telefono" required)
+                div(layout="row" layout-xs="column" layout-sm="column")
+                    md-input-container(flex)
+                        label E-mail
+                        input(ng-model="cotizacion.email" required)
+                    md-input-container(flex)
+                        label Celular
+                        input(ng-model="cotizacion.celular" required)
+                p *Ingresa la medida de tu llanta con un click en el campo correspondiente.
+                div(layout="row" layout-xs="column" layout-sm="column")
+                    md-input-container(flex)
+                        label (A) Ancho de Sección  
+                        input(ng-model="cotizacion.ancho" required)
+                    md-input-container(flex)
+                        label (B) Altura de Llanta
+                        input(ng-model="cotizacion.perfil" required)
+                    md-input-container(flex)
+                        label (C) Rin 
+                        input(ng-model="cotizacion.rin" required)
+                    md-input-container(flex)
+                        label (D E) Carga & Velocidad
+                        input(ng-model="cotizacion.velocidad" required)
+                div(layout="row" layout-align="center center")
+                    img(src="img/llanta.jpg" style="width: 100%; margin: 20px 0")
+                div(layout="row" layout-align="center center" layout-xs="column" layout-sm="column")
+                    md-input-container(flex)
+                        label Tipo de auto
+                        md-select(ng-model="cotizacion.auto" required)
+                            md-option(ng-value="'deportivo'") AUTO DEPORTIVO
+                            md-option(ng-value="'sedan'") AUTO SEDAN
+                            md-option(ng-value="'suv'") CAMIONETA SUV & PICK-UP
+                            md-option(ng-value="'carga'") CAMIONETA DE CARGA
+                    md-input-container.topmarca(flex)
+                        label Tipo de marca
+                        input(ng-model="cotizacion.marca" required) 
+                div(layout="row" layout-align="center center")
+                    md-input-container(flex)
+                        label Mensaje
+                        textarea(ng-model="cotizacion.mensaje" md-maxlength="150" rows="5")
+                md-button(type="submit" md-colors="{background: 'red'}") enviar
+            div(ng-show="listo")
+                md-card
+                    h1(style="text-align: center") Muchas Gracias, muy pronto nos comunicaremos contigo.
+                

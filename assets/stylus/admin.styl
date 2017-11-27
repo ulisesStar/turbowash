@@ -1,0 +1,31 @@
+transition(duracion, delay)
+    -webkit-transition all duracion cubic-bezier(0.445, 0.050, 0.550, 0.950)
+    transition all duracion cubic-bezier(0.445, 0.050, 0.550, 0.950)
+    -webkit-transition-delay delay ease-in-out
+    transition-delay delay ease-in-out
+
+animation(animation, duration = 1s)
+    -webkit-animation animation duration cubic-bezier(0.445, 0.050, 0.550, 0.950)
+    animation animation duration cubic-bezier(0.445, 0.050, 0.550, 0.950)
+    -webkit-transition all duration ease-in-out
+    -moz-transition all duration ease-in-out
+    -o-transition all duration ease-in-out
+    transition all duration ease-in-out
+
+.ng-hide-add.ng-hide-add-active
+	animation(fadeOut, 500ms)
+
+.ng-hide-remove.ng-hide-remove-active
+	animation(fadeIn, 500ms)
+
+md-grid-list
+    md-grid-tile
+        background-size cover
+        background-repeat no-repeat
+        background-position center
+
+.croppie-container
+    height 350px
+
+.dropify-container
+    width 100%

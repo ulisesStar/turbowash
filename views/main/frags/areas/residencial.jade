@@ -1,0 +1,72 @@
+.loading(ng-if="loading")
+    md-progress-linear(md-mode="indeterminate" ng-disabled="!loading" )
+.area(ng-if="!loading")
+    h1(style="margin-top: 150px; text-align: center") {{area.nombre}}
+    section.descripcion(layout="row" layout-align="center center" ng-if="area.descripcion !== null")
+        .descripcion-content(flex="70" flex-md="70" flex-sm="80" flex-xs="100")
+            p Dos décadas de experiencia nos respaldan como la mejor opción en lavado de toda clase de tapicería.
+            p Nuestros modernos equipos de lavado con sistema de inyección, succión y químicos de alto rendimiento, específicos para cada tipo de fibra de tus muebles, eliminarán ácaros, polvo y suciedad, erradicando de tu hogar enfermedades relacionadas con estos insalubres factores.
+            p Nuestro servicio es líder a nivel nacional, así como en zonas conurbadas.
+    section.servicios(layout="row" layout-align="center center" ng-if="area.servicios.length !== 0")
+        .servicios-cotent(flex="70" flex-md="70" flex-sm="80" flex-xs="90" layout="column")
+            md-list
+                h4 Servicios Residencial
+                md-list-item(ng-repeat="servicio in area.servicios")
+                    .md-list-item-text
+                        p {{servicio.nombre}}
+                md-list-item(style="margin: 10px 0")
+                    .md-list-item-text
+                        p - Aplicación de teflón en vestiduras
+                md-list-item
+                    .md-list-item-text
+                        p Otros servicios
+                md-list-item
+                    .md-list-item-text
+                        p - Limpieza a inmuebles en general o por término de obra.
+    section.multiresidencial
+        slider.slider(images="imagenesResidencial")
+    section.servicios(layout="row" layout-align="center center" ng-if="area.servicios.length !== 0")
+        .servicios-cotent(flex="70" flex-md="70" flex-sm="80" flex-xs="90" layout="column")
+            md-list
+                h4 Servicios comercial
+                md-list-item
+                    .md-list-item-text
+                        p Autobuses, teatros, cines, auditorios, hoteles, restaurantes, oficinas, universidades, salones de juntas, etc.
+    section.multiresidencial
+        slider.slider(images="imagenesComercial")
+    section.servicios(layout="row" layout-align="center center" ng-if="area.servicios.length !== 0")
+        .servicios-cotent(flex="70" flex-md="70" flex-sm="80" flex-xs="90" layout="column")
+            md-list
+                h4 Servicio Industrial
+                md-list-item
+                    .md-list-item-text
+                        p Limpieza y pintura para:
+                md-list-item
+                    .md-list-item-text
+                        p Naves industriales (señalética de seguridad)
+                md-list-item
+                    .md-list-item-text
+                        p Tuberías
+                md-list-item
+                    .md-list-item-text
+                        p Talleres
+                md-list-item
+                    .md-list-item-text
+                        p Agencias del ramo automotriz
+                md-list-item
+                    .md-list-item-text
+                        p Fábricas, etc.
+    section.multiresidencial
+        slider.slider(images="imagenesIndustrial")
+    section.contacto(layout="row" layout-align="center center"  style="width: 100%")
+        .contacto-content(flex="80" flex-xs="90" flex-sm="90")
+            md-list        
+                md-list-item(style="margin: 10px 0")
+                    .md-list-item-text
+                        h2 SERVICIO A DOMICILIO    
+                md-list-item(style="margin: 10px 0")
+                    .md-list-item-text
+                        h3 PREVIA CITA        
+                md-list-item(style="margin: 10px 0")
+                    .md-list-item-text
+                        p TEL. 890 68 03 EXT. 106

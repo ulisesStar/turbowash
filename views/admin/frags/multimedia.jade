@@ -1,0 +1,56 @@
+.crearMultimedia(ng-show="crearMultimedia")
+    md-card
+        md-toolbar
+            .md-toolbar-tools
+                h1 Multimedia
+                span(flex)
+        form(layout="column" ng-submit="submit(imagen)")
+           .dropify-container(ng-init="Dropify()" ng-hide="inputImage" flex)
+               input.dropify(type="file" data-default-file="Imagen del producto" ng-model="area.imagen" base-sixty-four-input maxsize="5120" data-max-file-size="1000K" accept="image/*" style="padding:0px;")
+           .croppie-container(ng-show="inputImage" flex)
+               ng-croppie(src="inputImage"
+                   ng-model='imagen.imagen'
+                   update='onUpdate'
+                   boundry="{w: 1128, h: 300}"
+                   viewport="{w: 1028, h: 500}"
+                   mousezoom="true" 
+                   zoom="true" 
+                   orientation="90"
+                   type="square")
+            md-divider
+            div(layout-aling="center center")
+                md-input-container
+                    label Selecciona un área
+                    md-select(ng-model="imagen.id_area")
+                        md-option(ng-repeat="area in areas" ng-value="area.id") {{area.nombre}}
+                md-button(md-colors="{background: 'green'}" type="submit" flex)
+                    md-icon save
+
+div(layout="row" layout-align="center center")
+    div(flex="80")
+        .multimedia
+            md-card-content(layout="row")
+                md-autocomplete(
+                flex
+                md-selected-item="ctrl.selectedMultimedia"
+                md-search-text-change="ctrl.BuscarMultimediaChange(ctrl.searchTextMultimedia)"
+                md-search-text="ctrl.searchTextMultimedia"
+                md-selected-item-change="ctrl.MultimediaSeleccionadaChange(item)"
+                md-items="item in multimedias"
+                md-item-text="item.area"
+                md-min-length="0"
+                placeholder="Nombre de la Multimedia"
+                md-menu-class="autocomplete-custom-template")
+                    md-item-template
+                        span {{item.area}}
+                md-button(md-colors="{background: 'green'}" ng-click="crearMultimedia = !crearMultimedia")
+                    md-icon add			
+        .Lista
+            md-card
+                md-toolbar
+                    h4 Lista de Multimedias 
+                md-grid-list(md-cols="5" md-row-height="75px")
+                    md-grid-tile(style="background-image: url({{multimedia.imagen}})" ng-repeat="multimedia in multimedias" md-colspan="1" md-rowspan="2" ui-sref="multimedia.filtro({area: area})")
+                        md-grid-tile-footer
+                            md-button(md-colors="{background:'red'}" ng-click="eliminarMultimedia(multimedia,$index)")
+                                md-icon clear

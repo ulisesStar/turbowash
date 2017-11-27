@@ -1,0 +1,18 @@
+.promociones
+    section.imagen(style="background-image: url(img/promociones.jpg)")
+        .titulo
+            h1 Promociones
+    section.promociones-container(layout="row" layout-align="center center")
+        div(flex="70" flex-md="70" flex-sm="70" flex-xs="70")
+            .promociones-content
+                h1 ¡6 meses sin intereses!
+                div(layout="row" layout-align="center center")
+                    .imagen-container(flex)
+                        img(src="img/mastercard.png")
+                    .imagen-container(flex)
+                        img(src="img/visa.png")
+                    .imagen-container(flex)
+                        img(src="img/amercian-express.png")
+                .imagenpromocionada(style="display:flex")
+                    img(src="{{promocion.imagen}}" style="margin: auto")
+                h4 6 meses sin intereses con las tarjetas participantes en todos los servicios, excepto lavado automatizado.

@@ -1,0 +1,517 @@
+azul = #1F4996
+azulmediano = #16365c
+azulclaro = #3976b2
+
+xs = "(max-width: 600px)"
+sm = "(min-width: 601px) and (max-width: 960px)"
+md = "(min-width: 961px) and (max-width: 1280px)"
+lg = "(min-width: 1281px) and (max-width: 1920px)"
+xl = "(min-width: 1921px)"
+
+gtxs = "(min-width: 600px)"
+compu = "(min-width: 960px)"
+
+mobile = "(max-width: 960px)"
+
+@font-face
+    font-family Fira
+    src url('/fonts/FiraSans-Regular.ttf')
+
+
+*
+    font-family Fira
+
+h1
+    @media xs
+        font-size 21px
+
+h2
+    @media xs
+        font-size 21px
+
+md-list-item
+    padding 0px !important
+
+header
+    height 75px
+    width 100%
+    z-index 10
+    position fixed
+    background-color rgba(255, 255, 255, 0.9)
+    md-icon
+        min-height inherit
+        min-width inherit
+        height inherit
+        width 200px
+        svg
+            width 200px
+    .menuboton
+        padding 8px
+    @media gtxs
+        .menu
+            height 100%
+            md-menu-bar
+                height 100%
+                .md-button
+                    height 100%
+                    margin 0px 5px
+                    padding 20px 0
+                    border-radius 0px
+                .md-button:not([disabled]):hover
+                    background-color azul
+                    color white
+
+@media gtxs
+    md-menu-content
+        md-menu-item
+            height 50px !important
+            .md-button
+                height 50px !important
+                padding-top 0px
+                margin 0px
+            .md-button:not([disabled]):hover
+                background-color azul
+                color white
+                height 50px
+// main
+//     margin-top 75px
+
+section.imagen
+    height 500px
+    background-position center center
+    background-size cover
+    position relative
+    .titulo
+        height 70px
+        width 100%
+        background-color rgba(31, 73, 150, .5)
+        display flex
+        position absolute !important
+        bottom 0px
+        h1
+            font-family open-sans, sans-serif
+            color white
+            margin-left 10%
+
+.home, .llantas
+    md-toolbar
+        background-color azul !important
+    section
+        .titulo
+            height 70px
+            background-color rgba(31, 73, 150, .5)
+            display flex
+            h1
+                font-family open-sans, sans-serif
+                color white
+        &.video
+            @media mobile
+                height 400px
+            height 70vh
+            position relative
+            @media lg
+                height 100vh
+            @media xl
+                height 100vh
+            iframe
+                width 100%
+                height 100%
+                position absolute !important
+                z-index 1 !important
+
+        &.contenido
+            .section-content
+                h4
+                    letter-spacing 5px
+                    font-size 34px
+                    font-weight bold
+                h1
+                    margin 25px 0
+                h2
+                    text-align center
+                    font-weight 100
+                    font-size 18px
+                    margin 50px 18px
+                    letter-spacing 6px
+                @medida mobile
+                    p
+                        font-size 20px
+
+            padding 10vh
+            @media xs
+                padding 10vh 0
+
+        &.slider
+            @media xs
+                max-height 280px !important
+                height 280px !important
+            @media compu
+                max-height 100vh !important
+                height 100vh !important
+            overflow hidden
+            background-position center
+            background-size cover
+            background-repeat no-repeat
+            display flex
+            .slider
+                @media xs
+                    max-height 300px
+                    height 300px
+                height 100vh
+                max-height 100vh
+                .slide
+                    height 100vh
+                    width 100%
+                    img
+                        width 100%
+                        margin auto
+        &.imagen
+            height 500px
+            overflow hidden
+            img
+                width 100%
+        &.cotizador
+            md-input-container
+                label
+                    color rgba(0,0,0,0.6)
+            .topmarca
+                .md-errors-spacer
+                    height 0px
+                    min-height 0px
+
+        &.portadallanta
+            @media mobile
+                height 300px
+            @media compu
+                height 100vh
+        .llantas-content
+            @media mobile
+                height 300px
+            @media compu
+                height 300px
+                margin 50px 0
+            .llanta
+                height 300px
+                @media mobile
+                    img
+                        height 100px
+
+
+.area
+    md-toolbar
+        background-color azul !important
+    section
+        max-height 500px
+        h4
+            font-size 24px
+        // .titulo
+        //     height 70px
+        //     width 100%
+        //     background-color rgba(31, 73, 150, .5)
+        //     display flex
+        //     position absolute !important
+        //     bottom 0px
+        //     h1
+        //         font-family open-sans, sans-serif
+        //         color white
+        //         margin-left 10%
+        &.video
+            position relative
+            @media mobile
+                height 55vh
+                max-height 55vh
+            @media compu
+                height 100vh
+                max-height 100vh
+            iframe
+                width 100%
+                height 100%
+                position absolute !important
+                z-index 1 !important
+
+
+        &.descripcion
+            padding 5vh
+            line-height 2
+            @media mobile
+                font-size 15
+                letter-spacing 1
+
+            @media compu
+                font-size 24
+                letter-spacing 5
+
+        &.portada
+            max-height 100vh
+            overflow hidden
+            .loading
+                margin auto
+            img
+                width 100%
+        &.equipo
+            width 100%
+            padding 5vh
+            max-height 600px
+            @media mobile
+                padding 5vh 0
+            md-list
+                md-list-item
+                    height 30px
+                    min-height 18px
+                    .md-list-item-text
+                        p
+                            margin 0px
+        &.servicios
+            padding 5vh
+            @media xs
+                padding 10vh 0
+            md-list
+                md-list-item
+                    height 30px
+                    min-height 18px
+                    .md-list-item-text
+                        p
+                            margin 0px
+
+        &.paquete
+            padding 10vh
+            @media mobile
+                padding 10vh 0
+                max-height inherit !important
+            max-height 750px
+            h1
+                text-align center
+                background-color azul
+                padding 5px 0
+                color white
+                border-radius 20px
+            .listas
+                .list-container
+                    @media compu
+                        min-width 170px
+                        max-width 170px
+                    @media mobile
+                        display inline-block
+                        width 100%
+                    display flex
+                    md-list
+                        @media mobile
+                            height inherit
+                        margin auto
+                        height 350px
+                        border-radius 20px
+                        h4
+                            @media mobile
+                                width 90px
+                                padding 100px 10px
+                                background-color azul
+                                color white
+                                margin 0px
+                            width 100%
+                            text-align center
+                            font-size 30px
+                            margin 10px 0
+                            &.numero
+                                border-top-right-radius 20px
+                                border-top-left-radius 20px
+                                @media mobile
+                                    border-radius 0px
+                            &.precio
+                                border-bottom-right-radius 20px
+                                border-bottom-left-radius 20px
+                                background-color azul
+                                color white
+                                @media mobile
+                                    border-radius 0px
+                        .contenido
+                            @media mobile
+                                width 100%
+                            background-color white
+                            min-height 250px
+                            md-list-item
+                                padding 0 16px !important
+                                background-color white
+                                height 25px
+                                min-height 11px
+                                max-height 25px
+                                .md-list-item-text
+                                    p
+                                        // margin 0px
+                                        font-size 11px
+                                        color azulmediano
+                                        &.tono
+                                            font-weight bold
+                        md-list-item.precio
+                            @media mobile
+                                height 100%
+                                width inherit
+                                border-radius 0px
+                            height 35px
+                            max-height 35px
+                            background-color azul
+                            border-bottom-right-radius 50px;
+                            border-bottom-left-radius 50px;
+                            color white
+                            strong
+                                text-align center
+                                width 100%
+
+
+        &.multimedia
+            display flex
+            max-height inherit
+            @media mobile
+                height 180px
+            @media md
+                height 500px
+            @media lg
+                height 600px
+            @media lg
+                height 700px
+            .loading
+                margin auto
+            // .slider
+            //     display flex
+            //     position relative
+            //     overflow hidden
+            //     height 100%
+            //     max-height 500px
+            //     width 100%
+            //     .slide
+            //         margin auto
+            //         position absolute
+            //         width 100%
+            //         img
+            //             width 100%
+        &.multiresidencial
+            height 100vh
+            max-height 100vh
+            @media mobile
+                height 300px
+
+        &.contacto
+            height inherit
+            padding 10vh
+            @media mobile
+                padding 0px
+            md-list
+                margin 20px 0
+                md-list-item
+                    height 20px
+                    min-height 20px
+
+.slider
+    display flex
+    position relative
+    overflow hidden
+    @media compu
+        height 100%
+        width 100%
+    @media mobile
+        height 280px
+        width 100%
+    .slide
+        margin auto
+        @media compu
+            position absolute
+            width 100%
+        @media mobile
+            width 100%
+            position absolute
+        img
+            @media compu
+                width 100%
+            @media mobile
+                width 100%
+
+.videos
+    @media mobile
+        min-height 1090px
+        -webkit-box-align inherit
+        -webkit-align-items center
+        -ms-grid-row-align center
+        align-items inherit
+        -webkit-align-content center
+        align-content inherit
+    @media compu
+        min-height 1090px
+        -webkit-box-align inherit
+        -webkit-align-items center
+        -ms-grid-row-align center
+        align-items inherit
+        -webkit-align-content center
+        align-content inherit
+    margin 100px 0px
+    md-grid-list
+        md-grid-tile
+            iframe
+                width 100%
+                height 100%
+
+.contacto
+    .formulario
+        md-input-container
+            label
+                color rgba(0,0,0,0.6)
+        @media mobile
+            min-height 300px
+            width 100%
+    .mapa
+        @media mobile
+            min-height 300px
+        iframe
+            @media compu
+                height 500px
+                width 100%
+            @media mobile
+                height 300px
+                width 100%
+
+footer
+    height 150px
+    background-color black
+    md-icon
+        width 300px
+
+
+.promociones
+    section.imagen
+        @media mobile
+            height 300px
+            margin-top 50px
+
+    .promociones-content
+        .imagen-container
+            display flex
+            img
+                margin auto
+                @media mobile
+                    width 70px
+        h4
+            text-align center
+        .imagenpromocionada
+            @media mobile
+                width 300px
+            img
+                @media mobile
+                    width 100%
+
+.acceso
+    width  100vw
+    height  calc(100vh - 100px)
+
+
+
+animation(animation, duration = 1s)
+    -webkit-animation animation duration cubic-bezier(0.445, 0.050, 0.550, 0.950)
+    animation animation duration cubic-bezier(0.445, 0.050, 0.550, 0.950)
+    -webkit-transition all duration ease-in-out
+    -moz-transition all duration ease-in-out
+    -o-transition all duration ease-in-out
+    transition all duration ease-in-out
+
+.ng-hide-add.ng-hide-add-active
+    animation(fadeOut, 500ms)
+
+.ng-hide-remove.ng-hide-remove-active
+    animation(fadeIn, 500ms)

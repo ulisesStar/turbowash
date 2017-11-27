@@ -1,0 +1,4 @@
+section.portada.parrallax
+    .loading(ng-if="!portadalista")
+        md-progress-circular(md-mode="indeterminate" md-diameter="100")
+    img.background(src="{{portadas[0].imagen}}" ng-if="portadalista")

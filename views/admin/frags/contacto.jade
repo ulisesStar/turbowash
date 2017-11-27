@@ -1,0 +1,31 @@
+div(layout="row" layout-align="center center")
+    div(flex="80")
+        .contactos
+            md-card-content(layout="row")
+                md-autocomplete(
+                flex
+                md-selected-item="ctrl.selectedContactos"
+                md-search-text-change="ctrl.BuscarContactosChange(ctrl.searchTextContactos)"
+                md-search-text="ctrl.searchTextContactos"
+                md-selected-item-change="ctrl.ContactosSeleccionadoChange(item)"
+                md-items="item in contactos"
+                md-item-text="item.nombre"
+                md-min-length="0"
+                placeholder="Nombre del Contacto"
+                md-menu-class="autocomplete-custom-template")
+                    md-item-template
+                        span {{item.nombre}}
+        
+        .Lista
+            md-card
+                md-toolbar
+                    h4 Lista de Contactos 
+                md-divider
+                md-list
+                    md-list-item(ng-repeat="contacto in contactos | filter: ctrl.searchTextContactos")
+                        .md-list-item-text
+                            strong {{contacto.nombre}}
+                        .md-secondary
+                            md-button(md-colors="{background: 'blue'}" ng-click="ContactoDialog(contacto.id)")
+                                md-icon info
+                    md-divider

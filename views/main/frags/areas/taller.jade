@@ -1,0 +1,15 @@
+.loading(ng-if="loading")
+    md-progress-linear(md-mode="indeterminate" ng-disabled="!loading" )
+.area(ng-if="!loading")
+    section.video(ng-if="area")
+        video-bg(video-id="area.video")
+        iframe(src="https://www.youtube.com/embed/TCyjhprPhqI?rel=0" frameborder="0" allowfullscreen hide-gt-sm)
+    md-toolbar(md-whiteframe="5")
+        .md-toolbar-tools
+            h1 {{area.nombre}}
+    include frags/descripcion
+    include frags/equipo
+    include frags/portada
+    include frags/servicios
+    include frags/paquete
+    include frags/multimedia

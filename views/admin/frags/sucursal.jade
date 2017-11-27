@@ -1,0 +1,53 @@
+div(layout="row" layout-align="center center")
+    div(flex="80")
+        .sucursales
+            md-card-content(layout="row")
+                md-autocomplete(
+                    flex
+                    md-selected-item="ctrl.selectedSucursales"
+                    md-search-text-change="ctrl.BuscarSucursalesChange(ctrl.searchTextSucursales)"
+                    md-search-text="ctrl.searchTextSucursales"
+                    md-selected-item-change="ctrl.SucursalesSeleccionadoChange(item)"
+                    md-items="item in sucursales"
+                    md-items-text="item.direccion"
+                    md-min-length="0"
+                    placeholder="Nombre de la Sucursal"
+                    md-menu-class="autocomplete-custom-template")
+                        md-item-template
+                            span{{item.direccion}}
+                    md-button(md-colors="{background: 'green'}" ng-click="abrirform()")
+                        md-icon add
+                    
+        .Crear(ng-show="!formulario")
+            md-card
+                md-toolbar
+                    .md-toolbar-tools
+                        h1 Sucursales
+                        span(flex)
+                        md-button(md-colors="{background: 'red'}" ng-click="cerrarForm()")
+                            md-icon clear
+                md-card-content(layout="column")
+                    form(ng-submit="submitSucursal(sucursal)")
+                        md-input-container(flex)
+                            label Direccion
+                            input(ng-model="sucursal.direccion" required)
+                        md-input-container(flex)
+                            label Telefono
+                            input(ng-model="sucursal.telefono" required)
+                        md-button(md-colors="{background: 'green'}" type="submit")
+                            md-icon send	
+                        
+        .Lista
+            md-card
+                md-toolbar
+                    h4 Lista de Sucursales 
+                md-card-content(layout="row")
+                    md-list(flex)
+                        md-list-item(ng-repeat="sucursal in sucursales")
+                            .md-list-item-text
+                                h4 {{sucursal.direccion}}
+                            .md-secondary 
+                                md-button(md-colors="{background:'green'}" ng-click="seleccionar(sucursal)")
+                                    md-icon edit
+                                md-button(md-colors="{background:'red'}" ng-click="eliminarSucursal(sucursal, $index)")
+                                    md-icon clear    	

@@ -1,0 +1,31 @@
+div(layout="row" layout-align="center center")
+    div(flex="80")
+        .areas
+            md-card-content(layout="row")
+                md-autocomplete(
+                flex
+                md-selected-item="ctrl.selectedAreas"
+                md-search-text-change="ctrl.BuscarAreasChange(ctrl.searchTextAreas)"
+                md-search-text="ctrl.searchTextAreas"
+                md-selected-item-change="ctrl.AreasSeleccionadoChange(item)"
+                md-items="item in areas"
+                md-item-text="item.nombre"
+                md-min-length="0"
+                placeholder="Buscar Area"
+                md-menu-class="autocomplete-custom-template")
+                    md-item-template
+                        span {{item.nombre}}	
+        .Lista
+            md-card
+                md-toolbar
+                    h4 Lista de Areas 
+                md-card-content(layout="row")
+                    md-list(flex)
+                        md-list-item(ng-repeat="area in areas | filter: ctrl.searchTextAreas")
+                            .md-list-item-text
+                                h4 {{area.nombre}}
+                            .md-secondary 
+                                md-button(md-colors="{background:'green'}" ui-sref="infoAreas({id: area.id})")
+                                    md-icon edit
+                                md-button(md-colors="{background:'red'}" ng-click="eliminarArea(area,$index)")
+                                    md-icon clear

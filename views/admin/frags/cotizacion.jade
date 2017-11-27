@@ -1,0 +1,41 @@
+md-card
+    md-toolbar
+        .md-toolbar-tools
+            h4 Cotizaciones
+    md-table-container
+        table(md-table md-row-select multiple)
+            thead(md-head)
+                tr(md-row)
+                    th(md-column md-numeric md-order-by="cotizacion.createdAt")
+                        md-icon date_range
+                        strong Fecha
+                    th(md-column md-numeric)
+                        md-icon person
+                        strong Nombre
+                    th(md-column md-numeric)
+                        md-icon phone
+                        | Teléfono
+                    th(md-column md-numeric)
+                        md-icon phonelink_ring
+                        | Celular
+                    th(md-column md-numeric)
+                        md-icon mail
+                        | E-mail
+                    th(md-column md-numeric)
+                        md-icon border_color
+                        | Mensaje
+                    //- th(md-column md-numeric) Ciudad
+                    //- th(md-column md-numeric) Direccion
+                    //- th(md-column md-numeric) ver
+            tbody(md-body)
+                tr(md-row md-select="dato" md-select-id="name" md-auto-select ng-repeat="cotizacion in cotizaciones")
+                    td(md-cell) {{cotizacion.createdAt | date:'medium' }}
+                    td(md-cell) {{cotizacion.nombre}}
+                    td(md-cell) {{cotizacion.telefono}}
+                    td(md-cell) {{cotizacion.celular}}
+                    td(md-cell) {{cotizacion.email}}
+                    td(md-cell) {{cotizacion.mensaje}}
+                    td(md-cell)
+                        md-button(ng-click="CotizacionDialog(cotizacion.id)" md-colors="{background : 'green'}")
+                            md-icon visibility
+    md-table-pagination(md-page-select)

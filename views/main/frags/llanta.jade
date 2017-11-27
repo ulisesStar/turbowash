@@ -1,0 +1,25 @@
+.llantas
+    section.portadallanta(style="display: flex; overflow: hidden")
+        img.background(src="img/llantas/{{portada}}.jpg" style="margin: auto; width: 100%")
+    md-toolbar(md-whiteframe="5")
+        .md-toolbar-tools
+            h1 {{nombre}}
+    section.contenido(layout="row" layout-align="center center")
+        .section-content(flex="70")
+            p Contamos con un amplio catálogo de llantas, las siguientes son solo unos cuantos modelos de nuestro catálogo.
+            .llantas-content
+                div(layout="row")
+                    md-progress-circular(md-mode="indeterminate" md-diameter="100" ng-disabled="llantas" ng-if="!llantas")
+                    .llanta(flex ng-repeat="llanta in llantas")
+                        .imagen-container(style="display:flex")    
+                            img(src="{{llanta.imagen}}" style="margin: auto")
+                        p(style="text-align: center") {{llanta.nombre}}
+            p Llantas GOODYEAR 100 Años de Investigación, innovación y liderazgo en la producción de nuevas tecnologías en neumáticos a nivel mundial.
+            p Seguridad y confort a tu alcance
+            .marcas(layout="row" layout-xs="column" layout-sm="column" layout-align="space-around center")
+                    img(src="img/goodyear_logo_yellow.png")
+                    img(src="img/dunlop_rubber_logo.jpg")
+            .marcas(layout="row" layout-xs="column" layout-sm="column" layout-align="center center")
+                    img(src="img/kelly-logo-gr.png")
+    section(layout="row" layout-align="center center")
+        md-button(md-colors="{background: 'red'}" ui-sref="cotizador") Ir al cotizador de llantas

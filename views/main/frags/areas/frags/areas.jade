@@ -1,0 +1,46 @@
+.loading(ng-if="loading")
+    md-progress-linear(md-mode="indeterminate" ng-disabled="!loading" )
+.area(ng-if="!loading")
+    section.video(ng-if="area")
+        video-bg(video-id="area.video")
+        .titulo
+            h1 {{area.nombre}}
+    section.descripcion(layout="row" layout-align="center center" ng-if="area.descripcion !== null")
+        .descripcion-content(flex="70" flex-md="70" flex-sm="80" flex-xs="100")
+            p {{area.descripcion}}
+    section.equipo(layout="row" layout-align="center center" ng-if="area.herramientas.length !== 0")
+        .equipo-cotent(flex="70" flex-md="70" flex-sm="80" flex-xs="100" layout="column")
+            md-list
+                h4 Nuestro Equipo
+                md-list-item(ng-repeat="equipo in area.herramientas")
+                    .md-list-item-text
+                        p {{equipo.nombre}}
+    section.portada.parrallax
+        .loading(ng-if="!portadalista")
+            md-progress-circular(md-mode="indeterminate" md-diameter="100")
+        img.background(src="{{portadas[0].imagen}}" ng-if="portadalista")
+    section.servicios(layout="row" layout-align="center center" ng-if="area.servicios.length !== 0")
+        .servicios-cotent(flex="70" flex-md="70" flex-sm="80" flex-xs="100" layout="column")
+            md-list
+                h4 Servicios
+                md-list-item(ng-repeat="servicio in area.servicios")
+                    .md-list-item-text
+                        p {{servicio.nombre}}
+    section.paquete(layout="row" layout-align="center center" ng-if="area.paquetes.length !== 0")
+        .paquete-content(flex="80" flex-md="80" flex-sm="90" flex-xs="100" layout="column")
+            h1 paquetes de {{area.nombre}} turbowash
+            .listas(layout="row" layout-align="space-around center" layout-xs="column" layout-sm="column")
+                .list-container(ng-repeat="paquete in area.paquetes")
+                    md-list(layout="column" layout-xs="row" layout-sm="row")
+                        md-list-item.numero
+                                strong {{$index + 1}}
+                        div(layout="column")
+                            md-list-item(ng-repeat="item in paquete.items")
+                                .md-list-item-text
+                                    p {{item.nombre}}
+                        md-list-item.precio
+                            strong $ {{paquete.precio}}
+    section.multimedia
+        .loading(ng-if="!imageneslista")
+            md-progress-circular(md-mode="indeterminate" md-diameter="100")
+        slider.slider(images="imagenes" ng-if="imageneslista")

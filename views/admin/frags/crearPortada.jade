@@ -1,0 +1,27 @@
+.crearPortada
+    md-card
+        md-toolbar
+            .md-toolbar-tools
+                h1 Imagenes
+                span(flex)
+           .dropify-container(ng-init="Dropify()" ng-hide="inputImage" flex)
+               input.dropify(type="file" data-default-file="Imagen del producto" ng-model="area.imagen" base-sixty-four-input maxsize="5120" data-max-file-size="1000K" accept="image/*" style="padding:0px;")
+           .croppie-container(ng-show="inputImage" flex)
+               ng-croppie(src="inputImage"
+                   ng-model='area.imagen'
+                   update='onUpdate'
+                   boundry="{w: 200, h: 200}"
+                   viewport="{w: 150, h: 100}"
+                   mousezoom="true" 
+                   zoom="true" 
+                   orientation="90"
+                   type="square")
+        div(layout-aling="center center")
+            md-button(md-colors="{background: 'green'}" )
+                md-icon add
+            md-button(md-colors="{background: 'green'}" flex  type="submit")
+                md-icon photo
+            md-button(md-colors="{background: 'red'}" flex ng-click="close()")
+                md-icon cancel
+            md-button.large(md-colors="{background: 'green'}" type="submit" flex)
+                md-icon save	

@@ -1,0 +1,99 @@
+.infoareas
+    md-card
+        md-toolbar
+            .md-toolbar-tools
+                h1 Areas
+                span(flex)         
+        form(ng-submit="submit(area)" layout="column")
+            .md-padding(flex layout="column")
+                md-input-container(flex)
+                    label Nombre del Area
+                    input(ng-model="area.nombre" required)
+                md-input-container(flex)
+                    label Id del video
+                    input(ng-model="area.video" required)
+                md-input-container(flex)
+                    label Descripcion
+                    textarea(ng-model="area.descripcion" md-maxlength="255" rows="4" md-select-on-focus required)            
+            md-button.large(md-colors="{background: 'green'}" type="submit" flex)
+                md-icon save
+    
+    section(layout="row")
+        .servicios(flex)
+            md-card
+                md-toolbar
+                    .md-toolbar-tools
+                        h4 Servicios 
+                        span(flex)
+                        md-button(ng-click="focusServicio()")
+                            md-icon add
+                form(ng-submit="submitServicio(servicio)" layout="row" ng-if="servicio")
+                    md-input-container(flex)
+                        md-icon forward
+                        label Nombre
+                        input(ng-model="servicio.nombre")
+                    md-button(type="submit" md-colors="{background: 'green'}")
+                        md-icon done
+                md-list
+                    md-list-item(ng-repeat="servicio in area.servicios" ng-click="focusServicio(servicio)")
+                        .md-list-item-text
+                            p {{servicio.nombre}}
+        
+        .herramientas(flex)       
+            md-card
+                md-toolbar
+                    .md-toolbar-tools
+                        h4 Equipo
+                        span(flex)
+                        md-button(ng-click="focusHerramienta()")
+                            md-icon add
+                form(ng-submit="submitHerramienta(herramienta)" layout="row" ng-if="herramienta")
+                    md-input-container(flex)
+                        md-icon forward
+                        label Nombre
+                        input(ng-model="herramienta.nombre")
+                    md-button(type="submit" md-colors="{background: 'green'}")
+                        md-icon done 
+    
+                md-list
+                    md-list-item(ng-repeat="herramienta in area.herramientas" ng-click="focusHerramienta(herramienta)")
+                        .md-list-item-text
+                            p {{herramienta.nombre}}
+                    
+    md-card.paquetes
+        md-toolbar
+            .md-toolbar-tools
+                h4 Paquetes
+                span(flex)
+                md-button(ng-click="focusPaquete()")
+                    md-icon add
+        md-divider
+        .paquetes-content(layout="row")
+            md-list(flex ng-if="!paquete")
+                md-list-item(ng-repeat="paquete in area.paquetes" ng-click="focusPaquete(paquete)")
+                    .md-list-item-text
+                        p {{paquete.nombre}}
+            .formularios-content(flex ng-if="paquete" layout="column")
+                form(ng-submit="submitPaquete(paquete)" layout="row")
+                    md-input-container(flex)
+                        md-icon forward
+                        label Nombre
+                        input(ng-model="paquete.nombre")
+                    md-button(type="submit" md-colors="{background: 'green'}")
+                        md-icon done
+                    md-button(ng-click="focusItems()") AGREGAR UN NUEVO ITEM
+                md-divider
+                form(ng-submit="submitItems(item)" layout="row" ng-if="paquete && item")
+                    md-input-container(flex)
+                        label Nombre del nuevo item para el paquete {{paquete.nombre}}
+                        input(ng-model="item.nombre")
+                    md-button(type="submit")
+                        md-icon done
+                md-divider
+                md-list(ng-if="paquete.id")
+                    md-subheader contenido del paquetes
+                    md-list-item(ng-repeat="item in paquete.items" ng-click="focusItems(item)")
+                        .md-list-item-text
+                            p {{item.nombre}}
+                md-divider
+                md-button(ng-click="salirEdicion()") SALIR DEL MODO EDICIÓN

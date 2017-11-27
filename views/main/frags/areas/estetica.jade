@@ -1,0 +1,25 @@
+.loading(ng-if="loading")
+    md-progress-linear(md-mode="indeterminate" ng-disabled="!loading" )
+.area(ng-if="!loading")
+    section.video(ng-if="area")
+        video-bg(video-id="area.video")
+        iframe(src="https://www.youtube.com/embed/m0G2nMOkYYc?rel=0" frameborder="0" allowfullscreen hide-gt-sm)
+    md-toolbar(md-whiteframe="5")
+        .md-toolbar-tools
+            h1 {{area.nombre}}
+    include frags/servicios
+    include frags/portada
+    section.paquete(layout="row" layout-align="center center" ng-if="area.paquetes.length !== 0")
+        .paquete-content(flex="80" flex-md="80" flex-sm="90" flex-xs="100" layout="column")
+            h1 Paquetes
+            .listas(layout="row" layout-align="space-around center" layout-xs="column" layout-sm="column")
+                .list-container(ng-repeat="paquete in area.paquetes")
+                    md-list(layout="column" layout-xs="row" layout-sm="row")
+                        div(layout="column")
+                            h2 {{paquete.nombre}}
+                            md-list-item(ng-repeat="item in paquete.items")
+                                .md-list-item-text
+                                    p {{item.nombre}}
+                        md-list-item.precio(ng-if="paquete.precio !== null")
+                            strong $ {{paquete.precio}}
+    include frags/multimedia

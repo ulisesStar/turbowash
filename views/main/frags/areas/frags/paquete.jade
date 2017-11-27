@@ -1,0 +1,12 @@
+section.paquete(layout="row" layout-align="center center" ng-if="area.paquetes.length !== 0")
+    .paquete-content(flex="90" flex-md="90" flex-sm="90" flex-xs="100" layout="column")
+        h1 Programas de Lavado Automatizado Túnel Turbowash
+        .listas(layout="row" layout-align="space-around center" layout-xs="column" layout-sm="column")
+            .list-container(ng-repeat="paquete in area.paquetes")
+                md-list(layout="column" layout-xs="row" layout-sm="row" flex)
+                    h4.numero(ng-if="$state.includes('lavado')") {{$index + 1}}
+                    .contenido(layout="column")
+                        md-list-item(ng-repeat="item in paquete.items")
+                            .md-list-item-text
+                                p(ng-class="{'tono' : item.marca === 1 }") {{item.nombre}}
+                    h4.precio(ng-if="paquete.precio !== null") ${{paquete.precio}}
