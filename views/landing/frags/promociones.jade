@@ -1,0 +1,48 @@
+.header(layout="row" layout-align="center center")
+    .header-content(flex="70")
+        .boton
+            md-button(href="/")
+                md-icon(md-svg-icon="img/logo.svg" hide-xs )
+                md-icon(md-svg-icon="img/isotipo.svg" hide-gt-xs)
+                h4 Visitanos en nuestro sitio oficial
+.promociones
+    section.contenido(layout="row" layout-align="center center")
+        div(flex="80" layout="row")
+            .promocion(flex="60")
+                .imagenpromocionada(style="display:flex" ng-if="promocion")
+                    img(src="{{promocion.imagen}}" style="margin: auto")
+            .contacto(flex)
+                form(layout="column" name="formulario" ng-submit="crear()")
+                    h1 ¡Solicita tu servicio ya!
+                    md-input-container
+                        label Nombre completo
+                        input(ng-model="contacto.nombre" name="nombre"  required)
+                    md-input-container
+                        label Telefono
+                        input(ng-model="contacto.telefono" name="telefono" minlength="10" type="text" required ng-pattern="/^[(][0-9]{3}[)] [0-9]{3}-[0-9]")
+                        div(ng-messages="formulario.telefono.$error")
+                            p(ng-message="pattern") inserta un telefono valido
+                    md-input-container
+                        label Correo
+                        input(ng-model="contacto.email" name="correo" minlength="10"  required ng-pattern="/^.+@.+\..+$/")
+                        div(ng-messages="formulario.correo.$error")
+                            p(ng-message="pattern") inserta un correo valido
+                    md-input-container(flex)
+                        label Mensaje
+                        textarea(ng-model="contacto.mensaje" md-maxlength="150" rows="3")
+                    md-button(type="submit")
+                        md-icon done
+    section.promociones-container(layout="row" layout-align="center center")
+        div(flex="70" flex-md="70" flex-sm="70" flex-xs="70")
+            .promociones-content
+                .intereses
+                    img(src="img/6meses.png")
+                .tarjetas(layout="column" layout-align="center center")
+                    .imagen-container(flex)
+                        img(src="img/mastercard.png")
+                    .imagen-container(flex)
+                        img(src="img/visa.png")
+                    .imagen-container(flex)
+                        img(src="img/amercian-express.png")
+                
+    //- h4 6 meses sin intereses con las tarjetas participantes en todos los servicios, excepto lavado automatizado.

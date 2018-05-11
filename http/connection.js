@@ -12,14 +12,14 @@ var sequelize = new Sequelize('turbowash', 'root', '1234', {
     }
 });
 
-sequelize.sync()
-    .then(function() {
-        console.log('Connecion realizada');
-    })
-    .catch(function(err) {
-        console.log('No se puede conectar a la bd:', err);
-    }
-);
+// sequelize.sync()
+//     .then(function() {
+//         console.log('Connecion realizada');
+//     })
+//     .catch(function(err) {
+//         console.log('No se puede conectar a la bd:', err);
+//     }
+// );
 
 module.exports.Sequelize = Sequelize;
 module.exports.sequelize = sequelize;

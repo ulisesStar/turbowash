@@ -94,6 +94,10 @@ app.config(['$ocLazyLoadProvider', function ($ocLazyLoadProvider) {
             {
 				name: 'ozAcceso',
 				files: ['js/main/frags/acceso.js']
+			},
+            {
+				name: 'landingpromociones',
+				files: ['js/landing/frags/promociones.js']
 			}
         ]
     });

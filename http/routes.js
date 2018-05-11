@@ -8,6 +8,16 @@ router.get("/", function(req, res) {
     res.render("main/layout");
 })
 
+
+router.get("/landing", function(req, res) {
+    res.render("landing/layout");
+})
+
+router.get("/landing/:url", function(req, res) {
+    var page = req.params.url
+    res.render("landing/frags/" + page);
+})
+
 router.get("/main/:url", function(req, res) {
     var page = req.params.url
     res.render("main/frags/" + page);
@@ -50,6 +60,8 @@ router.get("/admin", function(req, res) {
 
 router.all('/:action', function(req, res){
 })
+
+
 
 // router.get("/:url", function(req, res) {
 //     var page = req.params.url

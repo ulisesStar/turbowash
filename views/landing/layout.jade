@@ -1,0 +1,11 @@
+extends ../index
+
+block moreHead
+	script(type="text/javascript" src="js/landing/landing.states.js")
+	script(type="text/javascript" src="js/landing/landing.controller.js")
+	link(type="text/css" rel="stylesheet", href="stylus/landing.css")
+
+block content
+
+	.landing(ng-controller="landingCtrl as landingCtrl")
+		main.page(ui-view="main" flex)
