@@ -8,8 +8,9 @@ var app = angular.module('myapp', [
     'ngStorage',
     'ngCroppie',
     'angularVideoBg',
-    'md.data.table'
-
+    'md.data.table',
+    'angulartics',
+    'angulartics.google.tagmanager'
 ]);
 
 //TEMAS

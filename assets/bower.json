@@ -34,6 +34,7 @@
     "angular-base64-upload": "^0.1.23",
     "ng-youtube-embed": "^1.7.11",
     "angular-video-bg": "^0.3.4",
-    "angular-material-data-table": "^0.10.10"
+    "angular-material-data-table": "^0.10.10",
+    "angulartics": "^1.6.0"
   }
 }

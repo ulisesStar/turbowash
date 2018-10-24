@@ -1,8 +1,8 @@
 /*************************
  * Croppie
- * Copyright 2017
+ * Copyright 2018
  * Foliotek
- * Version: 2.5.0
+ * Version: 2.6.2
  *************************/
 (function (root, factory) {
     if (typeof define === 'function' && define.amd) {
@@ -20,7 +20,7 @@
     /* Polyfills */
     if (typeof Promise !== 'function') {
         /*! promise-polyfill 3.1.0 */
-        !function(a){function b(a,b){return function(){a.apply(b,arguments)}}function c(a){if("object"!=typeof this)throw new TypeError("Promises must be constructed via new");if("function"!=typeof a)throw new TypeError("not a function");this._state=null,this._value=null,this._deferreds=[],i(a,b(e,this),b(f,this))}function d(a){var b=this;return null===this._state?void this._deferreds.push(a):void k(function(){var c=b._state?a.onFulfilled:a.onRejected;if(null===c)return void(b._state?a.resolve:a.reject)(b._value);var d;try{d=c(b._value)}catch(e){return void a.reject(e)}a.resolve(d)})}function e(a){try{if(a===this)throw new TypeError("A promise cannot be resolved with itself.");if(a&&("object"==typeof a||"function"==typeof a)){var c=a.then;if("function"==typeof c)return void i(b(c,a),b(e,this),b(f,this))}this._state=!0,this._value=a,g.call(this)}catch(d){f.call(this,d)}}function f(a){this._state=!1,this._value=a,g.call(this)}function g(){for(var a=0,b=this._deferreds.length;b>a;a++)d.call(this,this._deferreds[a]);this._deferreds=null}function h(a,b,c,d){this.onFulfilled="function"==typeof a?a:null,this.onRejected="function"==typeof b?b:null,this.resolve=c,this.reject=d}function i(a,b,c){var d=!1;try{a(function(a){d||(d=!0,b(a))},function(a){d||(d=!0,c(a))})}catch(e){if(d)return;d=!0,c(e)}}var j=setTimeout,k="function"==typeof setImmediate&&setImmediate||function(a){j(a,1)},l=Array.isArray||function(a){return"[object Array]"===Object.prototype.toString.call(a)};c.prototype["catch"]=function(a){return this.then(null,a)},c.prototype.then=function(a,b){var e=this;return new c(function(c,f){d.call(e,new h(a,b,c,f))})},c.all=function(){var a=Array.prototype.slice.call(1===arguments.length&&l(arguments[0])?arguments[0]:arguments);return new c(function(b,c){function d(f,g){try{if(g&&("object"==typeof g||"function"==typeof g)){var h=g.then;if("function"==typeof h)return void h.call(g,function(a){d(f,a)},c)}a[f]=g,0===--e&&b(a)}catch(i){c(i)}}if(0===a.length)return b([]);for(var e=a.length,f=0;f<a.length;f++)d(f,a[f])})},c.resolve=function(a){return a&&"object"==typeof a&&a.constructor===c?a:new c(function(b){b(a)})},c.reject=function(a){return new c(function(b,c){c(a)})},c.race=function(a){return new c(function(b,c){for(var d=0,e=a.length;e>d;d++)a[d].then(b,c)})},c._setImmediateFn=function(a){k=a},"undefined"!=typeof module&&module.exports?module.exports=c:a.Promise||(a.Promise=c)}(this);
+        !function(a){function b(a,b){return function(){a.apply(b,arguments)}}function c(a){if("object"!==typeof this)throw new TypeError("Promises must be constructed via new");if("function"!==typeof a)throw new TypeError("not a function");this._state=null,this._value=null,this._deferreds=[],i(a,b(e,this),b(f,this))}function d(a){var b=this;return null===this._state?void this._deferreds.push(a):void k(function(){var c=b._state?a.onFulfilled:a.onRejected;if(null===c)return void(b._state?a.resolve:a.reject)(b._value);var d;try{d=c(b._value)}catch(e){return void a.reject(e)}a.resolve(d)})}function e(a){try{if(a===this)throw new TypeError("A promise cannot be resolved with itself.");if(a&&("object"===typeof a||"function"===typeof a)){var c=a.then;if("function"===typeof c)return void i(b(c,a),b(e,this),b(f,this))}this._state=!0,this._value=a,g.call(this)}catch(d){f.call(this,d)}}function f(a){this._state=!1,this._value=a,g.call(this)}function g(){for(var a=0,b=this._deferreds.length;b>a;a++)d.call(this,this._deferreds[a]);this._deferreds=null}function h(a,b,c,d){this.onFulfilled="function"===typeof a?a:null,this.onRejected="function"===typeof b?b:null,this.resolve=c,this.reject=d}function i(a,b,c){var d=!1;try{a(function(a){d||(d=!0,b(a))},function(a){d||(d=!0,c(a))})}catch(e){if(d)return;d=!0,c(e)}}var j=setTimeout,k="function"===typeof setImmediate&&setImmediate||function(a){j(a,1)},l=Array.isArray||function(a){return"[object Array]"===Object.prototype.toString.call(a)};c.prototype["catch"]=function(a){return this.then(null,a)},c.prototype.then=function(a,b){var e=this;return new c(function(c,f){d.call(e,new h(a,b,c,f))})},c.all=function(){var a=Array.prototype.slice.call(1===arguments.length&&l(arguments[0])?arguments[0]:arguments);return new c(function(b,c){function d(f,g){try{if(g&&("object"===typeof g||"function"===typeof g)){var h=g.then;if("function"===typeof h)return void h.call(g,function(a){d(f,a)},c)}a[f]=g,0===--e&&b(a)}catch(i){c(i)}}if(0===a.length)return b([]);for(var e=a.length,f=0;f<a.length;f++)d(f,a[f])})},c.resolve=function(a){return a&&"object"===typeof a&&a.constructor===c?a:new c(function(b){b(a)})},c.reject=function(a){return new c(function(b,c){c(a)})},c.race=function(a){return new c(function(b,c){for(var d=0,e=a.length;e>d;d++)a[d].then(b,c)})},c._setImmediateFn=function(a){k=a},"undefined"!==typeof module&&module.exports?module.exports=c:a.Promise||(a.Promise=c)}(this);
     }
 
     if ( typeof window.CustomEvent !== "function" ) {
@@ -55,6 +55,8 @@
 
     var cssPrefixes = ['Webkit', 'Moz', 'ms'],
         emptyStyles = document.createElement('div').style,
+        EXIF_NORM = [1,8,3,6],
+        EXIF_FLIP = [2,7,4,5],
         CSS_TRANS_ORG,
         CSS_TRANSFORM,
         CSS_USERSELECT;
@@ -79,6 +81,14 @@
     CSS_TRANS_ORG = vendorPrefix('transformOrigin');
     CSS_USERSELECT = vendorPrefix('userSelect');
 
+    function getExifOffset(ornt, rotate) {
+        var arr = EXIF_NORM.indexOf(ornt) > -1 ? EXIF_NORM : EXIF_FLIP,
+            index = arr.indexOf(ornt),
+            offset = (rotate / 90) % arr.length;// 180 = 2%4 = 2 shift exif by 2 indexes
+
+        return arr[(arr.length + index + (offset % arr.length)) % arr.length];
+    }
+
     // Credits to : Andrew Dupont - http://andrewdupont.net/2009/08/28/deep-extending-objects-in-javascript/
     function deepExtend(destination, source) {
         destination = destination || {};
@@ -91,6 +101,10 @@
             }
         }
         return destination;
+    }
+
+    function clone(object) {
+        return deepExtend({}, object);
     }
 
     function debounce(func, wait, immediate) {
@@ -150,37 +164,38 @@
         }
     }
 
+    function setAttributes(el, attrs) {
+        for (var key in attrs) {
+            el.setAttribute(key, attrs[key]);
+        }
+    }
+
     function num(v) {
         return parseInt(v, 10);
     }
 
     /* Utilities */
-    function loadImage(src, imageEl, doExif) {
-        var img = imageEl || new Image();
+    function loadImage(src, doExif) {
+        var img = new Image();
         img.style.opacity = 0;
-
         return new Promise(function (resolve) {
             function _resolve() {
-                setTimeout(function(){
+                img.style.opacity = 1;
+                setTimeout(function () {
                     resolve(img);
                 }, 1);
             }
 
-            if (img.src === src) {// If image source hasn't changed resolve immediately
-                _resolve();
-                return;
-            } 
-
-            img.exifdata = null;
             img.removeAttribute('crossOrigin');
             if (src.match(/^https?:\/\/|^\/\//)) {
                 img.setAttribute('crossOrigin', 'anonymous');
             }
+
             img.onload = function () {
                 if (doExif) {
                     EXIF.getData(img, function () {
                         _resolve();
-                    });    
+                    });
                 }
                 else {
                     _resolve();
@@ -190,10 +205,11 @@
         });
     }
 
-    function naturalImageDimensions(img) {
+    function naturalImageDimensions(img, ornt) {
         var w = img.naturalWidth;
         var h = img.naturalHeight;
-        if (img.exifdata && img.exifdata.Orientation >= 5) {
+        var orient = ornt || getExifOrientation(img);
+        if (orient && orient >= 5) {
             var x= w;
             w = h;
             h = x;
@@ -268,7 +284,7 @@
     };
 
     function getExifOrientation (img) {
-        return img.exifdata.Orientation;
+        return img.exifdata ? img.exifdata.Orientation : 1;
     }
 
     function drawCanvas(canvas, img, orientation) {
@@ -355,6 +371,7 @@
         }
 
         addClass(boundary, 'cr-boundary');
+        boundary.setAttribute('aria-dropeffect', 'none');
         bw = self.options.boundary.width;
         bh = self.options.boundary.height;
         css(boundary, {
@@ -373,6 +390,7 @@
         viewport.setAttribute('tabindex', 0);
 
         addClass(self.elements.preview, 'cr-image');
+        setAttributes(self.elements.preview, { 'alt': 'preview', 'aria-grabbed': 'false' });
         addClass(overlay, 'cr-overlay');
 
         self.element.appendChild(boundary);
@@ -540,7 +558,7 @@
                 self.options.viewport.width += deltaX;
                 css(self.elements.viewport, {
                     width: self.options.viewport.width + 'px'
-                }); 
+                });
             }
 
             _updateOverlay.call(self);
@@ -562,40 +580,18 @@
 
         if (vr) {
             vr.addEventListener('mousedown', mouseDown);
+            vr.addEventListener('touchstart', mouseDown);
         }
 
         if (hr) {
             hr.addEventListener('mousedown', mouseDown);
+            hr.addEventListener('touchstart', mouseDown);
         }
 
         this.elements.boundary.appendChild(wrap);
     }
 
-    function _setZoomerVal(v) {
-        if (this.options.enableZoom) {
-            var z = this.elements.zoomer,
-                val = fix(v, 4);
-
-            z.value = Math.max(z.min, Math.min(z.max, val));
-        }
-    }
-
-    function _initializeZoom() {
-        var self = this,
-            wrap = self.elements.zoomerWrap = document.createElement('div'),
-            zoomer = self.elements.zoomer = document.createElement('input');
-
-        addClass(wrap, 'cr-slider-wrap');
-        addClass(zoomer, 'cr-slider');
-        zoomer.type = 'range';
-        zoomer.step = '0.0001';
-        zoomer.value = 1;
-        zoomer.style.display = self.options.showZoomer ? '' : 'none';
-
-        self.element.appendChild(wrap);
-        wrap.appendChild(zoomer);
-
-        self._currentZoom = 1;
+    function _seom = 1;
 
         function change() {
             _onZoom.call(self, {
@@ -1568,4 +1564,50 @@
     if (typeof module === 'object' && !!module.exports) {
         module.exports = Croppie;
     }
+}));
+      enableExif: false,
+        enforceBoundary: true,
+        enableOrientation: false,
+        enableKeyMovement: true,
+        update: function () { }
+    };
+
+    Croppie.globals = {
+        translate: 'translate3d'
+    };
+
+    deepExtend(Croppie.prototype, {
+        bind: function (options, cb) {
+            return _bind.call(this, options, cb);
+        },
+        get: function () {
+            var data = _get.call(this);
+            var points = data.points;
+            if (this.options.relative) {
+                points[0] /= this.elements.img.naturalWidth / 100;
+                points[1] /= this.elements.img.naturalHeight / 100;
+                points[2] /= this.elements.img.naturalWidth / 100;
+                points[3] /= this.elements.img.naturalHeight / 100;
+            }
+            return data;
+        },
+        result: function (type) {
+            return _result.call(this, type);
+        },
+        refresh: function () {
+            return _refresh.call(this);
+        },
+        setZoom: function (v) {
+            _setZoomerVal.call(this, v);
+            dispatchChange(this.elements.zoomer);
+        },
+        rotate: function (deg) {
+            _rotate.call(this, deg);
+        },
+        destroy: function () {
+            return _destroy.call(this);
+        }
+    });
+
+    exports.Croppie = window.Croppie = Croppie;
 }));
