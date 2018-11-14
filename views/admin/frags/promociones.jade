@@ -2,20 +2,25 @@ div(layout="row" layout-align="center center")
     div(flex="80"  md-force-height="'100px'")
         md-card
             p Nota: La medida estandar de la imagen de promoción es 637px x 425 px.
+        
         .promociones
-            
-            form(layout="column" ng-submit="submit(promocion)")
-               .dropify-container(ng-init="Dropify()" ng-hide="inputImage" flex)
-                   input.dropify(type="file" data-default-file="Imagen del producto" ng-model="promocion.imagen" base-sixty-four-input maxsize="5120" data-max-file-size="1000K" accept="image/*" style="padding:0px;")
-               .croppie-container(ng-show="inputImage" flex style="height:550px")
-                   ng-croppie(src="inputImage"
-                       ng-model='promocion.imagen'
-                       update='onUpdate'
-                       boundry="{w: 700, h: 500}"
-                       viewport="{w: 637, h: 425}"
-                       mousezoom="true" 
-                       zoom="true" 
-                       orientation="90"
-                       type="square")
+            md-button(ng-click="imprimir()")
+                md-icon print
+            form(layout="column" ng-submit="submit(imagen)")
+                .dropify-container(ng-init="drop()" ng-hide="inputImage" flex)
+                    input.dropify(type="file" data-default-file="Imagen del producto" ng-model="ctrl.imagen" base-sixty-four-input maxsize="5120" data-max-file-size="1000K" accept="image/*" style="padding:0px;")
+                //- .croppie-container(ng-show="inputImage" flex)
+                //-     ng-croppie(src="inputImage"
+                //-         ng-model='imagen'
+                //-         update='onUpdate'
+                //-         boundry="{w: 200, h: 200 }"
+                //-         viewport="{w: 200, h: 200 }"
+                //-         mousezoom="true" 
+                //-         zoom="true" 
+                //-         orientation="90"
+                //-         type="square")
+
                 md-button(md-colors="{background: 'green'}" type="submit" flex)
                     md-icon save
+                    
+        p {{ctrl.imagen}}

@@ -29,6 +29,8 @@ app.controller('llantasCtrl', function($scope, $rootScope, $http, mdDialog, $mdD
         $scope.formulario = false;
     }
 
+    $scope.imprimir = () => console.log($scope.llanta)
+
     $scope.submitLlanta = function(llanta){
         $scope.seleccion === 0 ? crear(llanta) : update(llanta);
 

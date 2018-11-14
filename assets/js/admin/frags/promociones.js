@@ -3,12 +3,46 @@ var app = angular.module('myapp');
 app.controller('promocionesCtrl', function($scope, $rootScope, $http, mdDialog, $mdDialog, Promociones) {
 
 
-    $scope.submit = function(promocion){
+    const self = this
 
+    $scope.imagen = {}
+
+    $scope.submit = function(promocion){
         promocion.id = 1;
-        Promociones.editar(promocion).then(function(data){
+        Promociones.editar({id : 1, imagen : $scope.imagen}).then(function(data){
             console.log(data)
         })
+
+    }
+
+    $scope.drop = () => {
+
+        $('.dropify').dropify({
+            messages: {
+                default: 'Agregar',
+                replace: 'Reemplazar',
+                remove: 'Eliminar',
+                error: 'Error'
+            }
+        }).on('change', function() {
+
+            var input = this;
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    // bind new Image to Component
+                    $scope.$apply(function() {
+
+                        $scope.imagen = e.target.result
+
+                        // $scope.inputImage = e.target.result;
+                    });
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        });
 
     }
 
@@ -59,6 +93,10 @@ app.controller('promocionesCtrl', function($scope, $rootScope, $http, mdDialog, 
             console.log(data);
             $scope.formulario = true;
         })
+    }
+
+    $scope.imprimir = () => {
+        console.log( $scope.imagen )
     }
     // $scope.eliminarPromo = function(promo, $index){
     //     console.log($index);

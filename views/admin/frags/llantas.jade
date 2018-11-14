@@ -26,6 +26,8 @@ div(layout="row" layout-align="center center")
                         span(flex)
                         md-button(md-colors="{background: 'red'}" ng-click="cerrarForm()")
                             md-icon clear
+                md-button(ng-click="imprimir()")
+                    md-icon print
                 form(layout="row" ng-submit="submitLlanta(llanta)")
                     .info(flex="40" layout="column")
                         md-input-container(flex)
