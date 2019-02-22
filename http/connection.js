@@ -2,7 +2,7 @@ var mysql = require('mysql');
 var Sequelize = require('sequelize');
 
 var sequelize = new Sequelize('turbowash', 'root', '1234', {
-    host: '104.197.181.104',
+    host: '35.238.229.92',
     dialect: 'mysql',
     port: '3306',
     pool: {

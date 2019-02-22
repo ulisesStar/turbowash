@@ -7,6 +7,7 @@ var secret  = 'ScarlettJohanson';
 router.get("/", function(req, res) {
     res.render("main/layout");
 })
+.get('/robots.txt',  (req, res) => res.type('text/plain').send("User-agent: *\nAllow : /"))
 
 
 router.get("/landing", function(req, res) {
